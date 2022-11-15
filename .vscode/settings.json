@@ -1,0 +1,5 @@
+{
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "files.trimTrailingWhitespace": true
+}
