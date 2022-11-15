@@ -2,8 +2,7 @@ import {
   StyleSheet,
   ImageBackground,
   SafeAreaView,
-  View,
-  LogBox
+  View
 } from 'react-native'
 import StartGameScreen from './screens/StartGameScreen'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -13,6 +12,7 @@ import GameScreen from './screens/GameScreen'
 import * as Font from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 import Colours from './constants/colours'
+import { StatusBar } from 'expo-status-bar'
 
 SplashScreen.preventAutoHideAsync()
 
@@ -86,21 +86,24 @@ export default function App() {
   }
 
   return (
-    <View style={styles.rootScreen} onLayout={onLayoutRootView}>
-      <LinearGradient
-        style={styles.rootScreen}
-        colors={[Colours.primary700, Colours.accent500]}
-      >
-        <ImageBackground
-          source={require('./assets/images/background.png')}
-          resizeMode='cover'
+    <>
+      <StatusBar style='light' />
+      <View style={styles.rootScreen} onLayout={onLayoutRootView}>
+        <LinearGradient
           style={styles.rootScreen}
-          imageStyle={styles.backgroundImage}
+          colors={[Colours.primary700, Colours.accent500]}
         >
-          <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
-        </ImageBackground>
-      </LinearGradient>
-    </View>
+          <ImageBackground
+            source={require('./assets/images/background.png')}
+            resizeMode='cover'
+            style={styles.rootScreen}
+            imageStyle={styles.backgroundImage}
+          >
+            <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
+          </ImageBackground>
+        </LinearGradient>
+      </View>
+    </>
   )
 }
 
